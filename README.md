@@ -26,7 +26,7 @@ explain sections within news page
 
 ## Bugs
 
-- document and discuss bugs and bug fixes
+- Mixed up url.py files and settings.py files. This was realised after finding an error within the admin site. Deleted all associated files and started from scratch.
 #
 ## Deployment
 
@@ -37,6 +37,7 @@ explain sections within news page
 ## Credits 
 
 - reference where you got your content, media and extra help from
+- Code Institute Django Cheat Sheet
 #
 
 ## Content
