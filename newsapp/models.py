@@ -17,10 +17,10 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateField(auto_now_add = True)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     feature_image = CloudinaryField('image', default='placeholder')
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    likes = models.ManyToManyField(User, related_name='blogpost_likes', blank=True)
     category = models.CharField(max_length=255, default='uncategorized')
 
     class Meta:
