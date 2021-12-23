@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from datetime import datetime, date
+from django.urls import reverse
 
 STATUS = ((0, "Draft",), (1, "Published"))
 
@@ -46,3 +47,26 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"comment {self.body} by {self.name}"
+
+
+class UserPost(models.Model):
+    title = models.CharField(max_length=255)
+    slug = {'slug':('title',)}
+    author = '{{ user.username }}'
+    content = models.TextField()
+    feature_image = CloudinaryField('image', default='placeholder')
+    status = 'status'
+    category = models.CharField(max_length=255, default='uncategorized')
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+    def get_absolute_url(self):
+         return reverse('home')
