@@ -85,6 +85,8 @@ class AddPostView(CreateView,PostDetail):
    model = UserPost
    form_class = PostForm
    template_name = 'add_post.html'
+
+  
    #fields = ('title','content','feature_image','category')
    
    #def post(self):

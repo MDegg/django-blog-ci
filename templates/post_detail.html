@@ -54,7 +54,9 @@
         {% endwith %}
     </div>
     </div>
-   {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    {% if user.is_authenticated %} 
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} 
+    {% endif %}
   </div>
 </div>
 <div class="row">
