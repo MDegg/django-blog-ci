@@ -84,6 +84,7 @@ class PostLike(View):
 class AddPostView(CreateView,PostDetail):
    model = UserPost
    form_class = PostForm
+   queryset = Post.objects.filter(status=1).order_by('-created_on')
    template_name = 'add_post.html'
 
   
